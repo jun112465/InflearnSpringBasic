@@ -34,7 +34,7 @@ public class SingletonTest {
     }
 
     @Test
-    @DisplayName("r")
+    @DisplayName("스프링 컨테이너와 싱글톤")
     void springContainer(){
         AppConfig appConfig = new AppConfig();
 
@@ -42,6 +42,7 @@ public class SingletonTest {
         MemberService m1 = ac.getBean("memberService", MemberService.class);
         MemberService m2 = ac.getBean("memberService", MemberService.class);
 
+        //memberService가 싱글톤 패턴으로 생성돼 m1, m2의 값이 같게 나온다
         System.out.println("m1 : " + m1);
         System.out.println("m2 : " + m2);
         Assertions.assertThat(m1).isSameAs(m2);
